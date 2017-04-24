@@ -9,7 +9,8 @@
   3. Complete userModel
     * Complete pre-save function
 2. Client
-  1. init index.html
+  1. ~init index.html~
+    * load controllers and services
   2. App
     1. .config
     2. .factory (if necessary)
