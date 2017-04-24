@@ -1,0 +1,15 @@
+{
+  "name": "senior-phase-mvp",
+  "version": "1.0.0",
+  "description": "An app to determine your 10,000th day",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kendrick Schuettler",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "express": "^4.15.2"
+  }
+}
