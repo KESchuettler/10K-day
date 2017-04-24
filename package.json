@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.6.4",
-    "express": "^4.15.2"
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongoose": "^4.9.6"
   }
 }
