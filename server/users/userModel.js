@@ -1,7 +1,8 @@
 var mongoose = require('mongoose');
 
+
 var UserSchema = new mongoose.Schema({
-  cellNumber: {
+  mobileNumber: {
     type: String,
     required: true,
     unique: true,
@@ -12,14 +13,17 @@ var UserSchema = new mongoose.Schema({
     required: true,
   },
 
-  birthDay: {
+  birthday: {
     type: Date,
     required: true
   }
 })
 
 UserSchema.pre('save', (next) => {
-  // Clean date and cell number format
+  // send verification text
+  console.log('Pre-save this: ', this)
+  return next()
+  // clean datetime
 })
 
 module.exports = mongoose.model('users', UserSchema);

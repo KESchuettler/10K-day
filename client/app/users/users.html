@@ -1,16 +1,16 @@
 <div id="container">
   <h3>Your data here</h3>
   <form name="form" ng-model="user">
-    <input name="inputName" placeholder ="Enter your name..." type="text" ng-model="user.name">
-    <input name="inputBDay" placeholder ="Enter your birthday..." type="date" ng-model="user.date">
-    <input name="inputMobileNumber" placeholder ="Enter your mobile number..." type="text" ng-model="user.mobile">
+    <input name="inputName" placeholder ="Enter your name..." type="text" ng-model="user.username">
+    <input name="inputBDay" placeholder ="Enter your birthday..." type="date" ng-model="user.birthday">
+    <input name="inputMobileNumber" placeholder ="Enter your mobile number..." type="text" ng-model="user.mobileNumber">
     <button type="button"
     ng-click='addUser(user)'
     >
       Submit
     </button>
   </form>
-  <div>{{user.name}}</div>
-  <div>{{user.date}}</div>
-  <div>{{user.mobile}}</div>
+  <div>{{user.username}}</div>
+  <div>{{user.birthday}}</div>
+  <div>{{user.mobileNumber}}</div>
 </div>

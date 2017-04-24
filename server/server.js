@@ -8,16 +8,12 @@ var app = express();
 
 //configuration ===========================================
 
-// database files
-var db = require('../data/db.js')
-
 // configure our server with all the middleware and routing
 require('./config/middleware.js')(app, express);
 require('./config/routes.js')(app, express);
 
 
 // connect to mongo database named "JoeyBagODonuts"
-mongoose.connect('mongodb://localhost/JoeyBagODonuts')
 
 // set port
 var port = process.env.PORT || 8080;
@@ -26,4 +22,4 @@ var port = process.env.PORT || 8080;
 app.listen(port);
 
 // export app for flexibility, required by index.js
-module.exports = app;
+module.exports = app
