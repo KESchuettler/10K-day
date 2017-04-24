@@ -4,4 +4,5 @@ var helpers = require('./helpers.js') // custom middleware
 // routes =======================================
 module.exports = (app, express) => {
   // enter routing here
+  app.post('/api/users/create', userController.addUser)
 }

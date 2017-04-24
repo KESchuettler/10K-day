@@ -1,9 +1,25 @@
-var User = require('./userModel.js');
+var mongoose = require('mongoose');
 
-module.exports = {
+var UserSchema = new mongoose.Schema({
+  cellNumber: {
+    type: String,
+    required: true,
+    unique: true,
+  },
 
-  addUser: (req, res, next) => {
-    // enter data into database
+  username: {
+    type: String,
+    required: true,
+  },
+
+  birthDay: {
+    type: Date,
+    required: true
   }
+})
 
-}
+UserSchema.pre('save', (next) => {
+  // Clean date and cell number format
+})
+
+module.exports = mongoose.model('users', UserSchema);

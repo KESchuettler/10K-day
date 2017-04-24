@@ -1,25 +1,14 @@
-var mongoose = require('mongoose');
+var Q = require('q');
+var User = require('./userModel.js');
 
-var UserSchema = new mongoose.Schema({
-  cellNumber: {
-    type: String,
-    required: true,
-    unique: true,
-  },
+var createUser = Q.nbind(User.create, User)
 
-  username: {
-    type: String,
-    required: true,
-  },
+module.exports = {
 
-  birthDay: {
-    type: Date,
-    required: true
+  addUser: (req, res, next) => {
+    console.log(req.body);
+    var username = req.body.username
+    // enter data into database
   }
-})
 
-UserSchema.pre('save', (next) => {
-  // Clean date and cell number format
-})
-
-module.exports = mongoose.model('users', UserSchema);
+}
