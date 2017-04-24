@@ -1,16 +1,18 @@
 angular.module('tenKDay', [
-  'tenKDay.services',
-  'tenKDay.controllers',
+  // 'tenKDay.services',
+  //'tenKDay.users',
+  'ngRoute'
 ])
 .config(($routeProvider, $httpProvider) => {
+  $routeProvider
   .when('/', {
-    templateUrl: 'app/controllers/users.html',
+    templateUrl: 'app/users/users.html',
     controller: 'UsersController'
   })
   .otherwise({
     redirectTo: '/'
   })
 })
-.factory('', ($window) {
+.factory('placeholder', ($window) => {
   // enter services here
 })

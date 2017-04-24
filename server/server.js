@@ -9,7 +9,7 @@ var app = express();
 //configuration ===========================================
 
 // database files
-var db = require('./data/db.js')
+var db = require('../data/db.js')
 
 // configure our server with all the middleware and routing
 require('./config/middleware.js')(app, express);

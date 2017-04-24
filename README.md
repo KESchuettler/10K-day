@@ -12,7 +12,7 @@
   1. ~init index.html~
     * load controllers and services
   2. App
-    1. .config
+    1. ~.config~
     2. .factory (if necessary)
     3. .run (if necessary)
   3. create user js and html

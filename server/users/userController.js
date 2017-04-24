@@ -22,4 +22,4 @@ UserSchema.pre('save', (next) => {
   // Clean date and cell number format
 })
 
-module.exports = mongoose.mode('users', UserSchema);
+module.exports = mongoose.model('users', UserSchema);
