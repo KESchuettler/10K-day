@@ -11,3 +11,6 @@ angular.module('tenKDay', [
     redirectTo: '/'
   })
 })
+.factory('', ($window) {
+  // enter services here
+})
