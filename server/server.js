@@ -2,7 +2,6 @@
 
 // modules ================================================
 var express = require('express');
-var bodyParser = require('body-parser');
 var mongoose = require('mongoose')
 
 var app = express();
@@ -12,8 +11,10 @@ var app = express();
 // database files
 var db = require('./data/db.js')
 
-// configure our server with all the routing
+// configure our server with all the middleware and routing
+require('./config/middleware.js')(app, express);
 require('./config/routes.js')(app, express);
+
 
 // connect to mongo database named "JoeyBagODonuts"
 mongoose.connect('mongodb://localhost/JoeyBagODonuts')
