@@ -18,10 +18,6 @@ var UserSchema = new mongoose.Schema({
   }
 })
 
-UserSchema.methods.sendReminderText = () => {
-  // Send reminder textmessage to user
-}
-
 UserSchema.pre('save', (next) => {
   // Clean date and cell number format
 })
