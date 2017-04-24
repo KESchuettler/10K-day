@@ -7,4 +7,7 @@ angular.module('tenKDay', [
     templateUrl: 'app/controllers/users.html',
     controller: 'UsersController'
   })
+  .otherwise({
+    redirectTo: '/'
+  })
 })
