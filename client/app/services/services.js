@@ -1,3 +1,5 @@
+require('angular')
+
 angular.module('tenKDay.services', [])
 
   .factory('Users', function ($http) {

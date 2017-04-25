@@ -1,3 +1,5 @@
+require('angular')
+
 angular.module('tenKDay', [
   'tenKDay.services',
   'tenKDay.users',
