@@ -33,7 +33,7 @@ UserSchema.statics.queueMessages = () => {
     .exec((users) => {
       users = users.filter((user) => {
         // compare today to tenKday
-        return moment().add(7, 'days').isSame(user.tenKday, 'day') 
+        return moment().add(6, 'days').isSame(user.tenKday, 'day') 
       })
       if(users.length > 0) {
         helpers.sendSevenDayNotifications(users)
