@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
-let helpers = require('../config/helpers')
+const helpers = require('../config/helpers')
+const moment = require('moment')
 
 
 var UserSchema = new mongoose.Schema({
@@ -31,17 +32,18 @@ UserSchema.statics.queueMessages = () => {
     .find()
     .exec((users) => {
       users = users.filter((user) => {
-        return user.tenKday === today
+        // compare today to tenKday
+        return moment().add(7, 'days').isSame(user.tenKday, 'day') 
       })
       if(users.length > 0) {
-        helpers.sendNotifications(users)
+        helpers.sendSevenDayNotifications(users)
       }
     })
 }
 
 UserSchema.post('save', (doc) => {
   // send verification text
-  helpers.sendNotifications([doc])
+  helpers.sendInitialNotification(doc)
 })
 
 module.exports = mongoose.model('users', UserSchema);

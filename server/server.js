@@ -4,7 +4,7 @@
 require('dotenv').config()
 var express = require('express');
 var mongoose = require('mongoose');
-var twilioSender = require('../workers/twilioSender')
+var twilioSender = require('../workers/twilioSender').job
 var app = express();
 
 //configuration ===========================================
@@ -22,6 +22,8 @@ var port = process.env.PORT || 8080;
 // start listening to requests on port
 app.listen(port);
 
-//twilioSender.job.start();
+// start cron job
+twilioSender.start();
+
 // export app for flexibility, required by index.js
 module.exports = app

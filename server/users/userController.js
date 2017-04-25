@@ -10,7 +10,10 @@ module.exports = {
 
     User.findOne({mobileNumber: mobileNumber}).exec((err, found) => {
       // check to see if mobile number has already been used.
-      if(found) { res.status(200).send(found) }
+      if(found) {
+        console.log('User already exists')
+        res.status(200).send(found)
+       }
       else {
         var newUser = new User({
           mobileNumber: mobileNumber,
@@ -20,7 +23,7 @@ module.exports = {
         });
         newUser.save((err, newUser) => {
           if (err) res.status(500).send(err);
-          else res.status(200).send(newUser)
+          else res.status(201).send(newUser)
         })
       }
     })
