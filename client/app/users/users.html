@@ -1,16 +1,33 @@
 <div id="container">
   <h3>Your data here</h3>
   <form name="form" ng-model="user">
-    <input name="inputName" placeholder ="Enter your name..." type="text" ng-model="user.username">
-    <input name="inputBDay" placeholder ="Enter your birthday..." type="date" ng-model="user.birthday">
-    <input name="inputMobileNumber" placeholder ="Enter your mobile number..." type="text" ng-model="user.mobileNumber">
-    <button type="button"
-    ng-click='addUser(user)'
-    >
+    <input name="inputName" placeholder ="Enter your name..." type="text" ng-model="user.username" ng-maxlength = "32" required> </br>
+    <input name="inputBDay" placeholder ="Enter your birthday..." type="date" ng-model="user.birthday" required>
+    </br>
+    <input name="inputMobileNumber" placeholder ="Enter your mobile number..." type="text" ng-model="user.mobileNumber" ng-pattern="phoneNumber" required>
+    </br>
+    <button type="button" ng-click='addUser(user)' ng-disabled='!form.$valid'>
       Submit
     </button>
+    <div class="alert alert-danger" ng-show="form.inputName.$error.maxlength === true">
+      Your name must match be less than 32 characters
+    </div>
+    <div class="alert alert-danger" ng-show="form.inputName.$error.required === true">
+      A name is required.
+    </div>
+    <div class="alert alert-danger" ng-show="form.inputBDay.$error.required === true">
+      You must enter your birthday.
+    </div>
+    <div class="alert alert-danger" ng-show="form.inputMobileNumber.$error.pattern === true">
+      Your phone number must match one of the following styles 444-555-1234 | 246.555.8888 | 1235554567
+    </div>
+    <div class="alert alert-danger" ng-show="form.inputMobileNumber.$error.required === true">
+      A valid phone number is required.
+    </div>
+
+  <div class='tenKDay' ng-show="display !== undefined">
+    <h2>Your 10,000th day is on {{display}}</h2>
+  </div>
+
   </form>
-  <div>{{user.username}}</div>
-  <div>{{user.birthday}}</div>
-  <div>{{user.mobileNumber}}</div>
 </div>
