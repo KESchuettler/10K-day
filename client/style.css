@@ -1,0 +1,28 @@
+h1 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+#container {
+  margin-top: 50px;
+  margin-left: 25%;
+}
+
+form > div {
+  width: 60%;
+  margin: 5px 5px;
+  margin-left: 20px;
+}
+
+.btn {
+  margin: 5px 0px 5px 20px;
+
+}
+
+.alert {
+  width: 60%;
+  margin: 5px 0px 5px 20px;
+}
