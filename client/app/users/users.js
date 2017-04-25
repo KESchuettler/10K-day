@@ -1,5 +1,3 @@
-require('angular')
-
 angular.module('tenKDay.users', [
 ])
 
