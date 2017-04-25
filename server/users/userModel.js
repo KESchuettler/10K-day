@@ -16,6 +16,11 @@ var UserSchema = new mongoose.Schema({
   birthday: {
     type: Date,
     required: true
+  },
+
+  tenKday: {
+    type: Date,
+    required: true
   }
 })
 

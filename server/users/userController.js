@@ -15,6 +15,7 @@ module.exports = {
           mobileNumber: mobileNumber,
           username: req.body.user.username,
           birthday: req.body.user.birthday,
+          tenKday: req.body.user.tenKday,
         });
         newUser.save((err, newUser) => {
           if (err) res.status(500).send(err);

@@ -7,9 +7,9 @@ angular.module('tenKDay.users', [
   $scope.phoneNumber = /\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/;
 
   $scope.addUser = function (user) {
-    var birthday = user.birthday;
-    var tenKday = birthday.setDate(birthday.getDate() + 10000);
-    $scope.display = new Date(tenKday).toDateString();
+    var birthday = new Date(JSON.parse(JSON.stringify(user)).birthday);
+    user.tenKday = new Date(birthday.setDate(birthday.getDate() + 10000)).toDateString();
+    $scope.display = user.tenKday;
 
     Users.addOne({user: user})
     .then(function(resp) {console.log('Controller promise return: ',resp)})
