@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+let helpers = require('../config/helpers')
 
 
 var UserSchema = new mongoose.Schema({
@@ -24,11 +25,23 @@ var UserSchema = new mongoose.Schema({
   }
 })
 
-UserSchema.pre('save', (next) => {
+UserSchema.statics.queueMessages = () => {
+  var today = new Date()
+  User
+    .find()
+    .exec((users) => {
+      users = users.filter((user) => {
+        return user.tenKday === today
+      })
+      if(users.length > 0) {
+        helpers.sendNotifications(users)
+      }
+    })
+}
+
+UserSchema.post('save', (doc) => {
   // send verification text
-  console.log('Pre-save this: ', this)
-  return next()
-  // clean datetime
+  helpers.sendNotifications([doc])
 })
 
 module.exports = mongoose.model('users', UserSchema);

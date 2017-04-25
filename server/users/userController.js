@@ -9,6 +9,7 @@ module.exports = {
     let mobileNumber = req.body.user.mobileNumber
 
     User.findOne({mobileNumber: mobileNumber}).exec((err, found) => {
+      // check to see if mobile number has already been used.
       if(found) { res.status(200).send(found) }
       else {
         var newUser = new User({
@@ -23,8 +24,5 @@ module.exports = {
         })
       }
     })
-    // check to see if mobile number has already been used.
-
   }
-
 }
