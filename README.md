@@ -15,8 +15,8 @@
   npm start
   ```
 
-### Video
-<a href="/assets/10KDay.mov" />
+### Preview
+![Gif of application](/assets/10KDay.gif)
 
 ## Future Features
 * Friends reminder
