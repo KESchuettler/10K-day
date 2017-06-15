@@ -1,14 +1,12 @@
 var userController = require('../users/userController.js');
-var helpers = require('./helpers.js') // custom middleware
+var helpers = require('./helpers.js'); // custom middleware
 
 // routes =======================================
 module.exports = (app, express) => {
   // enter routing here
   app.get('/', (res, resp, next) => {
-    res.render('index')
-  } )
+    res.render('index');
+  });
 
-  app.post('/api/users/create', (req, res, next) => {
-    next();
-  }, userController.addUser)
+  app.post('/api/users/create', userController.addUser);
 };

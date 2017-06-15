@@ -1,10 +1,10 @@
 // server.js
 
 // modules ================================================
-require('dotenv').config()
+require('dotenv').config();
 var express = require('express');
 var mongoose = require('mongoose');
-var twilioSender = require('../workers/twilioSender').job
+var twilioSender = require('../workers/twilioSender').job;
 var app = express();
 
 //configuration ===========================================
@@ -26,4 +26,4 @@ app.listen(port);
 twilioSender.start();
 
 // export app for flexibility, required by index.js
-module.exports = app
+module.exports = app;

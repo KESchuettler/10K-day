@@ -1,15 +1,15 @@
 const twilio = require('twilio');
-const User = require('../users/userModel')
+const User = require('../users/userModel');
 
 module.exports = {
   sendSevenDayNotifications : (users) => {
-    console.log(users)
+    console.log(users);
 
-    const client = new twilio.RestClient(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN)
+    const client = new twilio.RestClient(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
     // Create options to send message
     users.forEach((user) => {
-      console.log('sendNotifications user: ', user)
+      console.log('sendNotifications user: ', user);
       let options = {
         to: "1" + user.mobileNumber,
         from : process.env.TWILIO_PHONE_NUMBER,
@@ -18,26 +18,26 @@ module.exports = {
 
       // Send message
       client.sendMessage(options, (err, res) => {
-        if(err) console.error(err)
+        if(err) console.error(err);
         else {
-          let name = user.name
-          console.log('Reminder sent to ' + user.name + '.')
+          let name = user.name;
+          console.log('Reminder sent to ' + user.name + '.');
           User.find(user).remove((err, res) => {
-            if (err) console.log(err)
+            if (err) console.log(err);
             else {
-              console.log(name + ' removed from db.')
+              console.log(name + ' removed from db.');
             }
-          })
+          });
         }
-      })
-    })
+      });
+    });
   },
 
   sendInitialNotification: (user) => {
-    const client = new twilio.RestClient(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN)
+    const client = new twilio.RestClient(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
     // Create options to send message
-      console.log('sendNotifications user: ', user)
+      console.log('sendNotifications user: ', user);
       let options = {
         to: "1" + user.mobileNumber,
         from : process.env.TWILIO_PHONE_NUMBER,
@@ -46,10 +46,10 @@ module.exports = {
 
       // Send message
       client.sendMessage(options, (err, res) => {
-        if(err) console.error(err)
+        if(err) console.error(err);
         else {
-          console.log('Initial message sent to ' + user.name)
+          console.log('Initial message sent to ' + user.name);
         }
-      })
+      });
   }
-}
+};

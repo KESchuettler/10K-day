@@ -11,5 +11,5 @@ angular.module('tenKDay', [
     })
     .otherwise({
       redirectTo: '/'
-    })
-})
+    });
+});

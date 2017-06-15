@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-mongoURI = 'mongodb://kendrick:demo@ds117271.mlab.com:17271/tenkday-db';
+mongoURI = process.ENV.MONGO_URL;
 mongoose.connect(mongoURI);
 
 // Run in seperate terminal window using 'mongod'

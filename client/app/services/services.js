@@ -11,14 +11,14 @@ angular.module('tenKDay.services', [])
       .then(function (resp) {
         console.log('Server resp, ', resp);
         if(resp.status === 200) {
-          alert('This number has already been used.')
+          alert('This number has already been used.');
         }
         return resp;
       })
-      .catch(function(err) {console.error(err)})
+      .catch(function(err) {console.error(err);});
     };
 
     return {
       addOne: addOne
-    }
-  })
+    };
+  });
